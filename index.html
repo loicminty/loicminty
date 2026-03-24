@@ -32,6 +32,16 @@
             position: relative;
         }
         
+        /* All links: blue and underlined */
+        a {
+            color: blue;
+            text-decoration: underline;
+        }
+        
+        a:hover {
+            color: darkblue;
+        }
+        
         .container {
             width: 100%;
             height: 100%;
@@ -117,9 +127,8 @@
         }
         
         .contact a {
-            color: black;
-            text-decoration: none;
-            border-bottom: 0.5px solid #ccc;
+            color: blue;
+            text-decoration: underline;
         }
         
         .social-links {
@@ -129,20 +138,27 @@
             font-size: 11px;
         }
         
-        .social-links a {
-            color: black;
-            text-decoration: none;
-            border-bottom: 0.5px solid #ccc;
+        /* Main heading - twice as big as name */
+        .main-heading {
+            font-family: math, 'Courier New', monospace;
+            font-weight: 700;
+            font-size: 36px;
+            text-transform: lowercase;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.35rem;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 0.1rem;
+            line-height: 1;
         }
         
-        /* Section headers - math font, lowercase */
-        .section-header {
+        /* Subheadings - original heading size */
+        .subheading {
             font-family: math, 'Courier New', monospace;
             font-weight: 700;
             font-size: 11px;
             text-transform: lowercase;
             letter-spacing: 0.5px;
-            margin-bottom: 0.25rem;
+            margin: 0.5rem 0 0.25rem 0;
             border-bottom: 0.5px solid #ccc;
             padding-bottom: 0.1rem;
         }
@@ -162,13 +178,8 @@
         }
         
         .work-title a {
-            color: black;
-            text-decoration: none;
-            border-bottom: 0.5px solid transparent;
-        }
-        
-        .work-title a:hover {
-            border-bottom-color: black;
+            color: blue;
+            text-decoration: underline;
         }
         
         .work-meta {
@@ -183,7 +194,7 @@
             margin-top: 0.1rem;
         }
         
-        /* Dates list */
+        /* Dates list - number format */
         .dates-list {
             list-style: none;
         }
@@ -197,7 +208,7 @@
         
         .date {
             font-weight: 700;
-            min-width: 90px;
+            min-width: 100px;
         }
         
         /* Professional experience items */
@@ -214,13 +225,8 @@
         }
         
         .exp-title a {
-            color: black;
-            text-decoration: none;
-            border-bottom: 0.5px solid transparent;
-        }
-        
-        .exp-title a:hover {
-            border-bottom-color: black;
+            color: blue;
+            text-decoration: underline;
         }
         
         .exp-meta {
@@ -263,48 +269,15 @@
             background: #ccc;
         }
         
-        /* Easter Egg Popup */
-        .easter-egg {
+        /* Fixed image bottom left */
+        .fixed-image {
             position: fixed;
-            bottom: 20px;
-            left: 20px;
-            z-index: 1000;
-            display: none;
-            animation: fadeIn 0.5s ease;
-            cursor: pointer;
-        }
-        
-        .easter-egg img {
-            max-width: 200px;
-            height: auto;
-            border: 1px solid black;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-        }
-        
-        .overlay-text {
-            position: absolute;
             bottom: 10px;
             left: 10px;
-            background: rgba(255,255,255,0.9);
-            padding: 4px 8px;
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-            font-weight: bold;
-            border: 1px solid black;
-        }
-        
-        .overlay-text a {
-            color: black;
-            text-decoration: none;
-        }
-        
-        .overlay-text a:hover {
-            text-decoration: underline;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            z-index: 1000;
+            max-width: 150px;
+            height: auto;
+            border: 1px solid #ccc;
         }
         
         @media (max-width: 800px) {
@@ -314,9 +287,33 @@
             .logo {
                 font-size: 16px;
             }
-            .easter-egg img {
-                max-width: 150px;
+            .main-heading {
+                font-size: 28px;
             }
+            .fixed-image {
+                max-width: 100px;
+            }
+        }
+        
+        /* Writing items */
+        .writing-item {
+            margin-bottom: 0.35rem;
+        }
+        
+        .writing-title {
+            font-size: 10px;
+            font-weight: 600;
+        }
+        
+        .writing-title a {
+            color: blue;
+            text-decoration: underline;
+        }
+        
+        .writing-category {
+            font-size: 9px;
+            color: #666;
+            margin-left: 0.5rem;
         }
     </style>
 </head>
@@ -353,10 +350,12 @@
             </div>
         </div>
         
-        <!-- COLUMN 2: Selected Projects + Dates (new order with contexts) -->
+        <!-- COLUMN 2: Selected Projects with subcategories -->
         <div class="col-scroll">
-            <div class="section-header">selected projects</div>
+            <div class="main-heading">selected projects</div>
             
+            <!-- Acousmatic subcategory -->
+            <div class="subheading">acousmatic</div>
             <div class="work-item">
                 <div class="work-title"><a href="https://youtu.be/q7FDYEDuMTs" target="_blank">primordial — pièce pour dôme</a></div>
                 <div class="work-meta">2024</div>
@@ -373,11 +372,6 @@
                 <div class="work-description">premier album studio</div>
             </div>
             <div class="work-item">
-                <div class="work-title"><a href="https://www.instagram.com/p/DVEn5CtCS3T/" target="_blank">deep loop — inner-space</a></div>
-                <div class="work-meta">mars 2026</div>
-                <div class="work-description">premier événement inner-space, inspiré du deep listening</div>
-            </div>
-            <div class="work-item">
                 <div class="work-title"><a href="https://youtu.be/vu2A_GpKI3A" target="_blank">clair de lune — animation</a></div>
                 <div class="work-meta">2023</div>
                 <div class="work-description">présenté au festival dérapages</div>
@@ -387,6 +381,9 @@
                 <div class="work-meta">2023</div>
                 <div class="work-description">emploi jeunesse villeray</div>
             </div>
+            
+            <!-- Installations subcategory -->
+            <div class="subheading">installations</div>
             <div class="work-item">
                 <div class="work-title"><a href="https://youtu.be/oKmUs3kClpQ" target="_blank">ode marine — installation</a></div>
                 <div class="work-meta">2024–2025</div>
@@ -398,7 +395,16 @@
                 <div class="work-description">présenté au festival 1001 pots, avec Félicité Couëlle-Brunet</div>
             </div>
             
-            <div class="section-header" style="margin-top: 0.5rem;">dates</div>
+            <!-- Events subcategory -->
+            <div class="subheading">events</div>
+            <div class="work-item">
+                <div class="work-title"><a href="https://www.instagram.com/p/DVEn5CtCS3T/" target="_blank">deep loop — inner-space</a></div>
+                <div class="work-meta">mars 2026</div>
+                <div class="work-description">premier événement inner-space, inspiré du deep listening</div>
+            </div>
+            
+            <!-- Dates section - number format -->
+            <div class="subheading" style="margin-top: 0.5rem;">dates</div>
             <ul class="dates-list">
                 <li><span class="date">6 septembre 2024</span> empreintes vestiges — lignes de fuites, on show</li>
                 <li><span class="date">8 août 2025</span> correspondances — 1001 pots</li>
@@ -407,17 +413,19 @@
             </ul>
         </div>
         
-        <!-- COLUMN 3: Formation + Professional Experience -->
+        <!-- COLUMN 3: Formation + Professional Experience with subcategories -->
         <div class="col-scroll">
-            <div class="section-header">formation</div>
+            <div class="main-heading">formation</div>
             <div class="work-item">
                 <div class="work-title">université de montréal</div>
                 <div class="work-meta">bac — musiques numériques</div>
                 <div class="work-description">séminaire d'immersion à la S.A.T., systèmes A/V temps réel</div>
             </div>
             
-            <div class="section-header" style="margin-top: 0.5rem;">professional experience</div>
+            <div class="main-heading" style="font-size: 36px; margin-top: 0.5rem;">professional experience</div>
             
+            <!-- Companies subcategory -->
+            <div class="subheading">companies</div>
             <div class="exp-item">
                 <div class="exp-title"><a href="https://panm360.com/en/" target="_blank">PAN M 360</a></div>
                 <div class="exp-meta">2025–présent</div>
@@ -438,6 +446,51 @@
                 <div class="exp-meta">MUTEK, centre PHI, artch.</div>
                 <div class="exp-description"></div>
             </div>
+            
+            <!-- Selected Writings subcategory -->
+            <div class="subheading">selected writings</div>
+            
+            <div class="writing-item">
+                <div class="writing-title"><a href="https://panm360.com/gig_review/mutek-anti-music-gadi-sassoon-portrait-xo/" target="_blank">MUTEK | Anti-Music : Gadi Sassoon & Portrait XO</a></div>
+                <div class="writing-category">critique</div>
+            </div>
+            <div class="writing-item">
+                <div class="writing-title"><a href="https://panm360.com/en/gig_review/palomosa-m-i-a-tied-up-in-a-scarf-peace/" target="_blank">Palomosa | M.I.A. Tied up in a Scarf Peace</a></div>
+                <div class="writing-category">critique</div>
+            </div>
+            <div class="writing-item">
+                <div class="writing-title"><a href="https://panm360.com/en/gig_review/african-american-sound-recordings-at-sat-noise-floor/" target="_blank">African American Field Recordings at the SAT : Noise Floor</a></div>
+                <div class="writing-category">critique</div>
+            </div>
+            <div class="writing-item">
+                <div class="writing-title"><a href="https://panm360.com/en/records/best-albums-of-2025-klein-sleep-with-a-cane/" target="_blank">Best Albums of 2025: Klein - sleep with a cane</a></div>
+                <div class="writing-category">critique</div>
+            </div>
+            <div class="writing-item">
+                <div class="writing-title"><a href="https://panm360.com/en/gig_review/making-time-xxv-maria-somervilles-transcendance/" target="_blank">SAT / Making Time XXV : Maria Somerville’s Transcendence</a></div>
+                <div class="writing-category">critique</div>
+            </div>
+            
+            <div class="writing-item" style="margin-top: 0.25rem;">
+                <div class="writing-title"><a href="https://panm360.com/en/gig_review/mutek-anti-music-gadi-sassoon-portrait-xo/" target="_blank">SAT x Dômesicle | Marie-Davidson takes on the Terms and Conditions</a></div>
+                <div class="writing-category">interview</div>
+            </div>
+            <div class="writing-item">
+                <div class="writing-title"><a href="https://panm360.com/en/gig_review/palomosa-m-i-a-tied-up-in-a-scarf-peace/" target="_blank">MUTEK | Sabrina Ratté, conversation with a digital art oracle</a></div>
+                <div class="writing-category">interview</div>
+            </div>
+            <div class="writing-item">
+                <div class="writing-title"><a href="https://panm360.com/en/gig_review/african-american-sound-recordings-at-sat-noise-floor/" target="_blank">Akousma | Pia Balthazar, the poetics of refusal in the Age of AI</a></div>
+                <div class="writing-category">interview</div>
+            </div>
+            <div class="writing-item">
+                <div class="writing-title"><a href="https://panm360.com/en/records/best-albums-of-2025-klein-sleep-with-a-cane/" target="_blank">SAT | Amselysen, Between Political Fiction and Product Culture</a></div>
+                <div class="writing-category">interview</div>
+            </div>
+            <div class="writing-item">
+                <div class="writing-title"><a href="https://panm360.com/en/gig_review/making-time-xxv-maria-somervilles-transcendance/" target="_blank">SAT’s Substrat Sound Series: IRL’s soundscapes</a></div>
+                <div class="writing-category">interview</div>
+            </div>
         </div>
     </div>
     
@@ -446,21 +499,12 @@
     </div>
 </div>
 
-<!-- Easter Egg Popup -->
-<div id="easterEgg" class="easter-egg">
-    <img src="ChezNino020.jpg" alt="easter egg">
-    <div class="overlay-text">
-        <a href="https://www.youtube.com/watch?v=aGwzwf1AOlI&pp=ygUWZGVyZWsgamVuc2VuIGludGVydmlldw%3D%3D" target="_blank">where have you been?</a>
-    </div>
-</div>
+<!-- Fixed image bottom left -->
+<img src="ChezNino020.jpg" alt="Chez Nino" class="fixed-image">
 
 <script>
     const playButton = document.getElementById('playButton');
     const audioPlayer = document.getElementById('audioPlayer');
-    const easterEgg = document.getElementById('easterEgg');
-    let eggShown = false;
-    
-    // Loop is handled by the 'loop' attribute on the audio element
     
     playButton.addEventListener('click', function() {
         if (audioPlayer.paused) {
@@ -474,32 +518,6 @@
     
     audioPlayer.addEventListener('ended', function() {
         playButton.textContent = '▶';
-    });
-    
-    // Easter egg: show popup after first loop completes
-    audioPlayer.addEventListener('ended', function() {
-        if (!eggShown && audioPlayer.currentTime > 0) {
-            easterEgg.style.display = 'block';
-            eggShown = true;
-        }
-    });
-    
-    // Also check for loop completion (when loop attribute is used, 'ended' fires on each loop)
-    let loopCount = 0;
-    audioPlayer.addEventListener('ended', function() {
-        loopCount++;
-        if (loopCount === 1 && !eggShown) {
-            easterEgg.style.display = 'block';
-            eggShown = true;
-        }
-    });
-    
-    // Optional: click on egg to dismiss (but keep link functionality)
-    easterEgg.addEventListener('click', function(e) {
-        // Don't dismiss if clicking the link directly
-        if (e.target.tagName !== 'A') {
-            easterEgg.style.display = 'none';
-        }
     });
 </script>
 
